@@ -1,0 +1,20 @@
+
+<div>
+<h1>Register Form</h1>
+<button (click)="back()">Back</button>
+<form>
+    <div>
+        <label for="name">Name</label><br>
+        <input type="text" id="reg-name" required [(ngModel)]="model.Name" name="name" #name="ngModel">
+    </div>
+    <div>
+        <label for="email">Email</label><br>
+        <input type="text" id="reg-email" required [(ngModel)]="model.Email" name="email" #name="ngModel">
+    </div>
+    <div>
+        <label for="title">Title</label><br>
+        <input type="text" id="reg-title" required [(ngModel)]="model.Title" name="title" #name="ngModel">
+    </div><br>
+    <button type="button"  (click)="newStudent()">Add Student</button>
+</form>
+</div>
