@@ -13,7 +13,7 @@ import { ConnectionService } from '../connection.service';
 
 export class StudentDetailsComponent implements OnInit {
 
-  detailedStudent: Student[];
+  detailedStudent: any;
   edit: boolean = false;
   req_error_msg: string;
   
