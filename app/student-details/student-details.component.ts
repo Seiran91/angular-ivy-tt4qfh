@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Student, RegStudent } from '../Student';
+import { Student } from '../Student';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { ConnectionService } from '../connection.service';
@@ -13,7 +13,7 @@ import { ConnectionService } from '../connection.service';
 
 export class StudentDetailsComponent implements OnInit {
 
-  detailedStudent: any;
+  detailedStudent: Student[];
   edit: boolean = false;
   req_error_msg: string;
   
@@ -45,16 +45,28 @@ export class StudentDetailsComponent implements OnInit {
   }
 
   updateStudent(putStudent: Student){
-    console.log(putStudent);
+    //console.log(putStudent);
     const studentURL = this.location.path();
-    if(this.studentService.updateStudent(studentURL, putStudent)){
-      this.editShowHideBoolean();
-    }else{console.log("Oops!")}
+    this.studentService.updateStudent(studentURL, putStudent)
+    .subscribe(
+      response => {
+        console.log("Student with id: "+response+" updated succesfully!");
+        this.editShowHideBoolean();
+      },
+      err => {console.log(err)}
+    );
     
   }
   deleteStudent(): void {
     const reqStudent = this.location.path();
-    this.studentService.deleteStudent(reqStudent);
+    this.studentService.deleteStudent(reqStudent)
+    .subscribe(
+      response => {
+        console.log("Student with id: "+response+" deleted succesfully!");
+        this.location.back();
+      },
+      err => {console.log(err)}
+    );
   }
 
 }

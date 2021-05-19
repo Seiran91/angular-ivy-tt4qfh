@@ -1,0 +1,11 @@
+.studentDetails{
+    text-align: center;
+}
+.studentDetailsEdit{
+    text-align: center;
+}
+nav ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+}
