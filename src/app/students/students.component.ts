@@ -8,26 +8,24 @@ import { ConnectionService } from '../connection.service';
   styleUrls: ['./students.component.css']
 })
 export class StudentsComponent implements OnInit {
-
   students: Student[] = [];
-  
-  constructor(private connectionService: ConnectionService) {
-   }
 
-   // Initialize students list by calling getList method below
+  constructor(private connectionService: ConnectionService) {}
+
+  // Initialize students list by calling getList method below
   ngOnInit(): void {
     this.getList();
   }
 
   // Fetch data from connectionService which is responsible for requests to the server!
   getList(): void {
-    
-    this.connectionService.getStudentsList()
-    .subscribe(
-      data => { this.students = data },
-      err => { console.log("Something went wrong!" + err.error) }
-      );
+    this.connectionService.getStudentsList().subscribe(
+      data => {
+        this.students = data;
+      },
+      err => {
+        console.log('Something went wrong! ' + err.message);
+      }
+    );
   }
-
-
 }
