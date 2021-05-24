@@ -25,7 +25,7 @@ export class StudentsComponent implements OnInit {
     this.connectionService.getStudentsList()
     .subscribe(
       data => { this.students = data },
-      err => { console.log("Something went wrong!" + err) }
+      err => { console.log("Something went wrong!" + err.error) }
       );
   }
 
