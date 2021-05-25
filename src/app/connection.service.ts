@@ -12,7 +12,6 @@ export class ConnectionService {
   constructor(private http: HttpClient, private location: Location) {}
 
   //private baseURL = 'http://localhost/connection.php';
-  //private baseURL = 'http://seiran-mvc-data.000webhostapp.com/angulardata.php';
   private baseURL = 'https://seiran.eu/connection.php';
 
   httpOptions = {
