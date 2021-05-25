@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../Student';
 import { ConnectionService } from '../connection.service';
+import { STUDENTS } from '../studentList';
 
 @Component({
   selector: 'app-students',

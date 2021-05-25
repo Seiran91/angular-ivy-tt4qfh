@@ -11,8 +11,8 @@ import { catchError } from 'rxjs/operators';
 export class ConnectionService {
   constructor(private http: HttpClient, private location: Location) {}
 
-  //private baseURL = 'http://localhost/connection.php';
-  private baseURL = 'https://seiran.eu/connection.php';
+  private baseURL = 'https://seiran.online/connection.php';
+  //private baseURL = 'https://seiran.eu/connection.php';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -75,6 +75,5 @@ export class ConnectionService {
         })
       );
   }
-
   /* DELETE requests end here */
 }
