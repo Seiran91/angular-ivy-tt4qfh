@@ -1,3 +1,11 @@
+
+.studentDetailsError {
+ text-align: center;
+}
+input[type=text], textarea{
+    width: 50%;
+    text-align: center;
+}
 .studentDetails{
     text-align: center;
 }
@@ -8,4 +16,9 @@ nav ul{
     list-style-type: none;
     display: flex;
     justify-content: space-evenly;
+}
+button{
+    width: 90px;
+    height:max-content;
+    margin: 20px;
 }

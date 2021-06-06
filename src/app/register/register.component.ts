@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {  Student } from '../Student';
 import { ConnectionService } from '../connection.service';
 import { Location } from '@angular/common';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 @Component({
   selector: 'app-register',

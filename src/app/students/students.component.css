@@ -5,6 +5,7 @@ ul {
   text-align: center;
 }
 .dashboard{
+  margin: 5px;
   list-style-type: none;
   display: flex;
   justify-content: space-around;

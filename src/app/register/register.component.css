@@ -1,5 +1,11 @@
-
-
+textarea{
+    width: 50%;
+    text-align: center;
+    align-content: center;
+}
+button{
+    margin: 20px;
+}
 * {
     text-align: center;
 }

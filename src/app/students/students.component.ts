@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../Student';
 import { ConnectionService } from '../connection.service';
-import { STUDENTS } from '../studentList';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 @Component({
   selector: 'app-students',
@@ -9,24 +9,24 @@ import { STUDENTS } from '../studentList';
   styleUrls: ['./students.component.css']
 })
 export class StudentsComponent implements OnInit {
+
   students: Student[] = [];
+  
+  constructor(private connectionService: ConnectionService) {
+   }
 
-  constructor(private connectionService: ConnectionService) {}
-
-  // Initialize students list by calling getList method below
+   // Initialize students list by calling getList method below
   ngOnInit(): void {
     this.getList();
   }
 
   // Fetch data from connectionService which is responsible for requests to the server!
   getList(): void {
-    this.connectionService.getStudentsList().subscribe(
-      data => {
-        this.students = data;
-      },
-      err => {
-        console.log('Something went wrong! ' + err.message);
-      }
-    );
+    
+    this.connectionService.getStudentsList()
+    .subscribe(
+      data => { this.students = data },
+      err => { console.log("Something went wrong!" + err) }
+      );
   }
 }

@@ -3,6 +3,7 @@ import { Student } from '../Student';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { ConnectionService } from '../connection.service';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 @Component({
   selector: 'app-student-details',
@@ -15,7 +16,7 @@ export class StudentDetailsComponent implements OnInit {
 
   detailedStudent: Student[];
   edit: boolean = false;
-  req_error_msg: string;
+  req_error_msg: string = "Content which are you looking for doesn't exist";
   
   constructor(private route: ActivatedRoute,
     private studentService: ConnectionService,
@@ -32,7 +33,7 @@ export class StudentDetailsComponent implements OnInit {
     this.studentService.getStudentDetails(reqStudent)
       .subscribe(
         response => this.detailedStudent = response,
-        err => this.req_error_msg = err.message
+        err => {console.log(err.message);}
         );
   }
 
