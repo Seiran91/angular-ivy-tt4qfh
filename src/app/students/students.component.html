@@ -1,11 +1,10 @@
 <div class="studentList">
-  <ul class="dashboard">
-    <li><button routerLink="" class="btn btn-primary">Home</button></li>
+  <ul class="dashboard" *ngIf="this.connectionService.User.logged">
     <li><button routerLink="/register" class="btn btn-primary">Register</button></li>
   </ul>
   <ul class="list-group">
     <li *ngFor="let student of students">
-      <a  routerLink="/student/{{student.id}}" class="list-group-item list-group-item-action">
+      <a  routerLink="/student/{{student.id}}" class="list-group-item list-group-item-action" id="{{student.id}}">
         <span>{{student.Name}}</span> 
       </a>
     </li>

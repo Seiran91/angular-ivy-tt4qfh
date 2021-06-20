@@ -6,3 +6,13 @@ export interface Student {
     Email: string;
     Title: string;
   }
+
+export interface User {
+  user: string;
+  password: string;
+}
+
+export interface LoggedUser {
+  user: string;
+  logged: boolean;
+}

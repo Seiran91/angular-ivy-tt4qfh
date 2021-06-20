@@ -8,5 +8,5 @@ ul {
   margin: 5px;
   list-style-type: none;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
 }

@@ -10,9 +10,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 })
 export class StudentsComponent implements OnInit {
 
-  students: Student[] = [];
+  students: Student[];
   
-  constructor(private connectionService: ConnectionService) {
+  constructor(public connectionService: ConnectionService) {
    }
 
    // Initialize students list by calling getList method below
@@ -28,5 +28,5 @@ export class StudentsComponent implements OnInit {
       data => { this.students = data },
       err => { console.log("Something went wrong!" + err) }
       );
-  }
+    }
 }

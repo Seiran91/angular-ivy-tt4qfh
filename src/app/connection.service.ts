@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Student } from './Student';
+import { Student, LoggedUser } from './Student';
 import { Observable, throwError} from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Location } from '@angular/common';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 
 
 @Injectable({
@@ -18,13 +18,32 @@ export class ConnectionService {
 
   }
 
-  //private baseURL = 'http://localhost/connection.php';
-  //private baseURL = 'http://seiran-mvc-data.000webhostapp.com/angulardata.php';
-  private baseURL = 'https://seiran.online/connection.php';
+  User: LoggedUser = {user: "Login", logged: false};
+  initDataVar: any;
+
+  private baseURL = 'http://localhost/connection.php';
+  private userURL = 'http://localhost/users.php';
+  //private baseURL = 'https://seiran.online/connection.php';
   
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
+
+  initDataFun(): Promise<Boolean> {
+    
+    console.log("initDataFun() runs..");
+    
+    return new Promise<Boolean>((resolve)=>{
+        this.initDataVar = this.getStudentsList();
+        resolve(true);
+    });    
+
+  }
+
+  getData(): Observable <Student[]>{
+    console.log("getData() runs..");
+    return this.initDataVar;
+  }
 
   /* GET requests begin here */
   getStudentsList(): Observable <Student[]> {
@@ -87,4 +106,23 @@ export class ConnectionService {
 
   /* DELETE requests end here */
 
+  Login(user){
+      return this.http.post<any>(this.userURL, user)
+      .pipe(
+        tap(res => {
+          if(res){
+            console.log("Login success!");
+            this.User.user = user.user;
+            this.User.logged = true;
+          }
+        }),
+        catchError((err) =>{
+          return throwError(err.message);
+        })
+      )
+  }
+
+  Logout(){
+      this.User = {user: "Login", logged: false};
+  }
 }

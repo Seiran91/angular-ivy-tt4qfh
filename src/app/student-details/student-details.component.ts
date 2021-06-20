@@ -37,16 +37,7 @@ export class StudentDetailsComponent implements OnInit {
         );
   }
 
-  goBack(): void{
-    this.location.back();
-  }
-
-  editShowHideBoolean(): void{
-    this.edit = !this.edit
-  }
-
   updateStudent(putStudent: Student){
-    //console.log(putStudent);
     const studentURL = this.location.path();
     this.studentService.updateStudent(studentURL, putStudent)
     .subscribe(
@@ -69,5 +60,20 @@ export class StudentDetailsComponent implements OnInit {
       err => {console.log(err)}
     );
   }
+  
+  goBack(): void{
+    this.location.back();
+  }
 
+  editShowHideBoolean(): void{
+    this.edit = !this.edit
+  }
+
+  IsItAdmin() {
+    if(this.studentService.User.user == "admin"){
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

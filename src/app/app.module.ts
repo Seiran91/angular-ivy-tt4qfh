@@ -1,14 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+
+import { ConnectionService } from './connection.service';
 
 import { AppComponent } from './app.component';
 import { StudentsComponent } from './students/students.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RegisterComponent } from './register/register.component';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,8 @@ import { RegisterComponent } from './register/register.component';
     StudentsComponent,
     StudentDetailsComponent,
     PagenotfoundComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +28,13 @@ import { RegisterComponent } from './register/register.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [StudentsComponent],
+  providers: [StudentsComponent, {provide : APP_INITIALIZER, useFactory : initFunction, deps: [ConnectionService] , multi : true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function initFunction(config : ConnectionService)
+{
+  console.log("Initializer runs...");
+  return () =>config.initDataFun();
+}
