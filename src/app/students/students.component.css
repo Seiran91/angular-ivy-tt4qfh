@@ -1,12 +1,12 @@
 @import url('https://unpkg.com/bootstrap@4.5.0/dist/css/bootstrap.min.css');
 
 ul {
-  list-style-type: none;
-}
-.studentList {
+    list-style-type: none;
+  }
+.studentList{
   text-align: center;
 }
-.dashboard {
+.dashboard{
   margin: 5px;
   list-style-type: none;
   display: flex;

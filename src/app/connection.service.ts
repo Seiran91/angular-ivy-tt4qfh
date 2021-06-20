@@ -30,6 +30,7 @@ export class ConnectionService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
+  // initDataFun called on app-start for initialize data for the application only
   initDataFun(): Promise<Boolean> {
     
     console.log("initDataFun() runs..");

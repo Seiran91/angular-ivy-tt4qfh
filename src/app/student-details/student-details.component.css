@@ -1,26 +1,25 @@
 @import url('https://unpkg.com/bootstrap@4.5.0/dist/css/bootstrap.min.css');
 
 .studentDetailsError {
-  text-align: center;
+ text-align: center;
 }
-input[type='text'],
-textarea {
-  width: 50%;
-  text-align: center;
+input[type=text], textarea{
+    width: 50%;
+    text-align: center;
 }
-.studentDetails {
-  text-align: center;
+.studentDetails{
+    text-align: center;
 }
-.studentDetailsEdit {
-  text-align: center;
+.studentDetailsEdit{
+    text-align: center;
 }
-nav ul {
-  list-style-type: none;
-  display: flex;
-  justify-content: space-evenly;
+nav ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
 }
-button {
-  width: 90px;
-  height: max-content;
-  margin: 20px;
+button{
+    width: 90px;
+    height:max-content;
+    margin: 20px;
 }

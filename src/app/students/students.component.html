@@ -3,7 +3,7 @@
     <li><button routerLink="/register" class="btn btn-primary">Register</button></li>
   </ul>
   <div class="md-form">
-    <input type="search" [(ngModel)]="searchText" placeholder="Search text">
+    <input type="search" [(ngModel)]="searchText" placeholder="Search text" style="text-align: center;">
   </div>
   <ul class="list-group">
     <li *ngFor="let student of students | filter: searchText">

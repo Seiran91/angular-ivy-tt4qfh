@@ -28,7 +28,14 @@ export class RegisterComponent implements OnInit {
     this.connectionService.addStudent(this.model)
     .subscribe(
       data =>{
-        console.log("Student added succesfully with id: "+ data);
+        //The unary + operator converts its operand to Number type.
+        this.model.id = +data;
+        // Copy model because get reset before its gets pushed into array
+        const std = Object.assign({}, this.model);
+        this.connectionService.students.push(std);
+        // Sort array after new register
+        this.connectionService.students.sort((a,b) => a.Name.localeCompare(b.Name));
+        console.log("Student added succesfully with id: "+ data + "and Name: " + std.Name);
         this.emptyModel();
         },
       err =>{
@@ -40,9 +47,10 @@ export class RegisterComponent implements OnInit {
     this.location.back();
   }
   emptyModel(){
-    this.model.Name = '';
-    this.model.Email = '';
-    this.model.Title = '';
+    this.model.id = null;
+    this.model.Name = null;
+    this.model.Email = null;
+    this.model.Title = null;
   }
 
 }

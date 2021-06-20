@@ -39,10 +39,15 @@ export class StudentDetailsComponent implements OnInit {
 
   updateStudent(putStudent: Student){
     const studentURL = this.location.path();
+    const id = +this.route.snapshot.paramMap.get("id");
+    const index = this.studentService.students.findIndex(i => i.id === id);
+    // Here the only field that is visible and we need to update is the Name field, the others are fetched from db
+    // when we ask for detail's
     this.studentService.updateStudent(studentURL, putStudent)
     .subscribe(
       response => {
         console.log("Student with id: "+response+" updated succesfully!");
+        this.studentService.students[index].Name = putStudent.Name;
         this.editShowHideBoolean();
       },
       err => {console.log(err)}
@@ -51,10 +56,14 @@ export class StudentDetailsComponent implements OnInit {
   }
   deleteStudent(): void {
     const reqStudent = this.location.path();
+    const id = +this.route.snapshot.paramMap.get("id");
+    const index = this.studentService.students.findIndex(i => i.id === id);
+    
     this.studentService.deleteStudent(reqStudent)
     .subscribe(
       response => {
         console.log("Student with id: "+response+" deleted succesfully!");
+        this.studentService.students.splice(index,1);
         this.location.back();
       },
       err => {console.log(err)}
