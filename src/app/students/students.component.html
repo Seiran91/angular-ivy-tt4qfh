@@ -2,8 +2,11 @@
   <ul class="dashboard" *ngIf="this.connectionService.User.logged">
     <li><button routerLink="/register" class="btn btn-primary">Register</button></li>
   </ul>
+  <div class="md-form">
+    <input type="search" [(ngModel)]="searchText" placeholder="Search text">
+  </div>
   <ul class="list-group">
-    <li *ngFor="let student of students">
+    <li *ngFor="let student of students | filter: searchText">
       <a  routerLink="/student/{{student.id}}" class="list-group-item list-group-item-action" id="{{student.id}}">
         <span>{{student.Name}}</span> 
       </a>

@@ -24,6 +24,7 @@ export class ConnectionService {
   private baseURL = 'http://localhost/connection.php';
   private userURL = 'http://localhost/users.php';
   //private baseURL = 'https://seiran.online/connection.php';
+  students: Student[];
   
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -34,8 +35,13 @@ export class ConnectionService {
     console.log("initDataFun() runs..");
     
     return new Promise<Boolean>((resolve)=>{
-        this.initDataVar = this.getStudentsList();
-        resolve(true);
+        //this.initDataVar = this.getStudentsList();
+        this.getStudentsList()
+        .subscribe(
+          data => { this.students = data, resolve(true) },
+          err => { console.log("Something went wrong!" + err), resolve(false) }
+          );
+        
     });    
 
   }
@@ -49,6 +55,7 @@ export class ConnectionService {
   getStudentsList(): Observable <Student[]> {
 
     return this.http.get<Student[]>(this.baseURL)
+    
     .pipe(
       catchError((err) =>{
         return throwError(err);

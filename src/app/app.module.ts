@@ -12,6 +12,7 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { FilterPipe } from './filter/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
     StudentDetailsComponent,
     PagenotfoundComponent,
     RegisterComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

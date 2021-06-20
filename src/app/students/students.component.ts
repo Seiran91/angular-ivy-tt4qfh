@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
   styleUrls: ['./students.component.css']
 })
 export class StudentsComponent implements OnInit {
-
+  searchText: string = "";
   students: Student[];
   
   constructor(public connectionService: ConnectionService) {
@@ -20,13 +20,8 @@ export class StudentsComponent implements OnInit {
     this.getList();
   }
 
-  // Fetch data from connectionService which is responsible for requests to the server!
+  // Get data from connectionService which is responsible for requests to the server!
   getList(): void {
-    
-    this.connectionService.getStudentsList()
-    .subscribe(
-      data => { this.students = data },
-      err => { console.log("Something went wrong!" + err) }
-      );
+    this.students = this.connectionService.students;
     }
 }
