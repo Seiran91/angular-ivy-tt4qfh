@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
         this.connectionService.students.push(std);
         // Sort array after new register
         this.connectionService.students.sort((a,b) => a.Name.localeCompare(b.Name));
-        console.log("Student added succesfully with id: "+ data + "and Name: " + std.Name);
+        console.log("Student added succesfully with id: "+ data + " and Name: " + std.Name);
         this.emptyModel();
         },
       err =>{
