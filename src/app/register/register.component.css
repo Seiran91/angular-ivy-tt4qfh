@@ -1,9 +1,14 @@
 @import url('https://unpkg.com/bootstrap@4.5.0/dist/css/bootstrap.min.css');
 
-textarea{
+textarea1{
     width: 50%;
     text-align: center;
     align-content: center;
+}
+input[type=text], input[type=email], textarea{
+    width: 50%;
+    margin-left: 25%;
+    text-align: center;
 }
 button{
     margin: 20px;

@@ -39,17 +39,17 @@
     <form>
         <div>
             <label for="name"><b>Name</b></label><br>
-            <input type="text" id="update-name" required [(ngModel)]="detailedStudent.Name" name="name" #name="ngModel">
+            <input type="text" id="update-name" required [(ngModel)]="copyDetailedStudent.Name" name="name" #name="ngModel">
         </div>
         <div>
             <label for="email"><b>Email</b></label><br>
-            <input type="text" id="update-email" required [(ngModel)]="detailedStudent.Email" name="email" #name="ngModel">
+            <input type="text" id="update-email" required [(ngModel)]="copyDetailedStudent.Email" name="email" #name="ngModel">
         </div>
         <div>
             <label for="title"><b>Title</b></label><br>
-            <textarea type="text" rows="3" id="update-title" required [(ngModel)]="detailedStudent.Title" name="title" #name="ngModel"></textarea>
+            <textarea type="text" rows="3" id="update-title" required [(ngModel)]="copyDetailedStudent.Title" name="title" #name="ngModel"></textarea>
         </div>
-        <button type="button" class="btn btn-success" (click)="updateStudent(detailedStudent)">Update</button>
+        <button type="button" class="btn btn-success" (click)="updateStudent(copyDetailedStudent)">Update</button>
         <button type="button" class="btn btn-secondary" (click)="editShowHideBoolean()" >Cancel</button>
     </form>
     </div>

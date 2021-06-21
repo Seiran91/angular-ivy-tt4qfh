@@ -1,9 +1,16 @@
 <div class="studentList">
-  <ul class="dashboard" *ngIf="this.connectionService.User.logged">
-    <li><button routerLink="/register" class="btn btn-primary">Register</button></li>
-  </ul>
-  <div class="md-form">
-    <input type="search" [(ngModel)]="searchText" placeholder="Search text" style="text-align: center;">
+  <div class="dashboard">
+    <div class="input-group rounded">
+      <input type="search" [(ngModel)]="searchText" class="form-control rounded" placeholder="Search" aria-label="Search"
+        aria-describedby="search-addon">
+    </div>
+    <!--
+    <div class="md-form">
+      <input type="search" [(ngModel)]="searchText" placeholder="Search text" style="text-align: center;">
+    </div> -->
+    <div *ngIf="this.connectionService.User.logged">
+      <button routerLink="/register" class="btn btn-primary" style="margin-left: 10px;">Register</button>
+    </div>
   </div>
   <ul class="list-group">
     <li *ngFor="let student of students | filter: searchText">

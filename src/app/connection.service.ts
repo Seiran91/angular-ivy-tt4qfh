@@ -24,6 +24,7 @@ export class ConnectionService {
   private baseURL = 'http://localhost/connection.php';
   private userURL = 'http://localhost/users.php';
   //private baseURL = 'https://seiran.online/connection.php';
+  //private userURL = 'https://seiran.online/users.php';
   students: Student[];
   
   httpOptions = {

@@ -1,20 +1,36 @@
 
 <div>
 <h1>Register Form</h1>
-<button class="btn btn-secondary" (click)="back()">Back</button>
-<form>
+
+  <form>
     <div class="form-group">
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+        <div *ngIf="name.errors?.required" style="color: red;">
+          Name is required!
+        </div>
+      </div>
+      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
+        <div *ngIf="email.errors?.required" style="color: red;">
+          Email is required!
+        </div>
+      </div>
+      <div *ngIf="title.invalid && (title.dirty || title.touched)" class="alert">
+        <div *ngIf="title.errors?.required" style="color: red;">
+          Title is required!
+        </div>
+      </div>
       <label for="name">Full Name</label>
       <input type="text" class="form-control" id="reg-name" required [(ngModel)]="model.Name" name="name" #name="ngModel" placeholder="Enter Name">
     </div>
     <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" class="form-control" id="reg-email" required [(ngModel)]="model.Email" name="email" #name="ngModel" placeholder="Enter email">
+        <input type="email" class="form-control" id="reg-email" required [(ngModel)]="model.Email" name="email" #email="ngModel" placeholder="Enter email">
     </div>
     <div class="form-group">
         <label for="title">Title</label>
-        <input type="text" class="form-control" id="reg-title" required [(ngModel)]="model.Title" name="title" #name="ngModel">
+        <textarea type="text" rows="3" class="form-control" id="reg-title" required [(ngModel)]="model.Title" name="title" #title="ngModel"></textarea>
     </div><br>
-    <button type="button" class="btn btn-primary" (click)="newStudent()">Add Student</button>
+    <button type="button" (click)="newStudent()" class="btn btn-primary">Add Student</button>
+    <button class="btn btn-secondary" (click)="back()">Back</button>
   </form>
 </div>
