@@ -3,8 +3,8 @@
 export interface Student {
     id: number;
     Name: string;
-    Email: string;
-    Title: string;
+    Email?: string;
+    Title?: string;
   }
 
 export interface User {
