@@ -18,6 +18,7 @@ export class StudentDetailsComponent implements OnInit {
   valuesHasChanged = false;
   req_error_msg: string = "Content which are you looking for doesn't exist";
   editForm: FormGroup;
+  userLogged = false;
   
   constructor(private route: ActivatedRoute,
     private studentService: ConnectionService,
@@ -27,6 +28,7 @@ export class StudentDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.userLogged = this.studentService.User.logged;
     this.getStudentDetails();
   }
 

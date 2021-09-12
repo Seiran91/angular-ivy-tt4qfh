@@ -1,20 +1,21 @@
 @import url('https://unpkg.com/bootstrap@4.5.0/dist/css/bootstrap.min.css');
 
 ul {
-  list-style-type: none;
-}
-.studentList {
+    list-style-type: none;
+  }
+.studentList{
+  max-width: 50%;
+  margin-left: 25%;
   text-align: center;
 }
 
-input[type='search'] {
+
+input[type=search]{
   text-align: center;
+  
 }
-.studentList {
-  width: 50%;
-  margin-left: 25%;
-}
-.dashboard {
+
+.dashboard{
   margin: 10px;
   display: flex;
   align-items: center;

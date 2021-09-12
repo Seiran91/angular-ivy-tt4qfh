@@ -23,7 +23,7 @@
       <td> {{detailedStudent.Title}}</td>
     </tr>
   </table>
-  <div class="displaybuttons" *ngIf="this.studentService.User.logged && !edit">
+  <div class="displaybuttons" *ngIf="this.userLogged && !edit">
     <button class="btn btn-primary" (click)="editShowHideBoolean()" >Edit</button>
     <button *ngIf="IsItAdmin()" class="btn btn-danger" (click)="deleteStudent()" >Delete</button>
   </div>
@@ -57,8 +57,8 @@
             <textarea type="text" class="form-control" rows="3" id="update-title" formControlName="Title" ></textarea>
         </div>
         <div class="displaybuttons">
-        <button type="submit" [disabled]="editForm.invalid || !valuesHasChanged" class="btn btn-success">Update</button>
-        <button type="button" class="btn btn-secondary" (click)="editShowHideBoolean()" >Cancel</button>
+          <button type="submit" [disabled]="editForm.invalid || !valuesHasChanged" class="btn btn-success">Update</button>
+          <button type="button" class="btn btn-secondary" (click)="editShowHideBoolean()" >Cancel</button>
         </div>
     </form>
     </div>

@@ -13,7 +13,7 @@
     </div>
   </div>
   <ul class="list-group">
-    <li *ngFor="let student of students | filter: searchText">
+    <li *ngFor="let student of students | order: 'Name' | filter: searchText">
       <a  routerLink="/student/{{student.id}}" class="list-group-item list-group-item-action" id="{{student.id}}">
         <span>{{student.Name}}</span> 
       </a>
