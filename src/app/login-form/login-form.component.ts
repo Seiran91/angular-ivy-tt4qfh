@@ -32,7 +32,7 @@ export class LoginFormComponent implements OnInit {
 
   logout() {
     this.userService.Logout();
-    console.log("Logged out!");
+    console.log("Log out!");
   }
 
   back() {
