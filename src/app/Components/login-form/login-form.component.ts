@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ConnectionService } from '../connection.service';
+import { ConnectionService } from '../../Services/connection.service';
 import { Location } from '@angular/common';
 import {  User } from '../Student';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -32,7 +32,7 @@ export class LoginFormComponent implements OnInit {
 
   logout() {
     this.userService.Logout();
-    console.log("Log out!");
+    console.log("Logged out!");
   }
 
   back() {

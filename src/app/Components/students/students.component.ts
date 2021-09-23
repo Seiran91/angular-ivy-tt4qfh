@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../Student';
-import { ConnectionService } from '../connection.service';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { ConnectionService } from '../../Services/connection.service';
 
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',
   styleUrls: ['./students.component.css']
 })
+
 export class StudentsComponent implements OnInit {
   searchText: string = "";
   students: Student[];
-  
+
   constructor(public connectionService: ConnectionService) {
    }
 

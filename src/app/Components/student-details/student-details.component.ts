@@ -3,7 +3,7 @@ import { Student } from '../Student';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormGroup, FormBuilder, FormControl, Validators } from "@angular/forms";
-import { ConnectionService } from '../connection.service';
+import { ConnectionService } from '../../Services/connection.service';
 
 @Component({
   selector: 'app-student-details',
