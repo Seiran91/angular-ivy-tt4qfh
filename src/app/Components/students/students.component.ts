@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Student } from '../Student';
 import { ConnectionService } from '../../Services/connection.service';
+import { Student } from '../Student';
 
 @Component({
   selector: 'app-students',
@@ -11,13 +11,15 @@ import { ConnectionService } from '../../Services/connection.service';
 export class StudentsComponent implements OnInit {
   searchText: string = "";
   students: Student[];
+  userLogged: boolean;
 
-  constructor(public connectionService: ConnectionService) {
+  constructor(private connectionService: ConnectionService) {
    }
 
    // Initialize students list by calling getList method below
   ngOnInit(): void {
     this.getList();
+    this.userLogged = this.connectionService.User.logged;
   }
 
   // Get data from connectionService which is responsible for requests to the server!
